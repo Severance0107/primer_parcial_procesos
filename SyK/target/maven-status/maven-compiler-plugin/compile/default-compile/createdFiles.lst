@@ -1,0 +1,4 @@
+com\primer_parcial\SyK\controllers\ArticuloController.class
+com\primer_parcial\SyK\models\Articulo.class
+com\primer_parcial\SyK\SyKApplication.class
+com\primer_parcial\SyK\repository\ArticuloRepository.class
