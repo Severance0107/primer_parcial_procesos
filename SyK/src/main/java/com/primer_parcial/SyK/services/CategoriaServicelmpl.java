@@ -1,6 +1,5 @@
 package com.primer_parcial.SyK.services;
 
-import com.primer_parcial.SyK.models.Articulo;
 import com.primer_parcial.SyK.models.Categoria;
 import com.primer_parcial.SyK.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,20 +2,15 @@ package com.primer_parcial.SyK.controllers;
 
 
 import com.primer_parcial.SyK.models.Articulo;
-import com.primer_parcial.SyK.models.Categoria;
 import com.primer_parcial.SyK.repository.ArticuloRepository;
 import com.primer_parcial.SyK.repository.CategoriaRepository;
 import com.primer_parcial.SyK.services.ArticuloService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
 
 @RestController
-
 public class ArticuloController {
 
     @Autowired

@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Usuario {
     @Id
     @Column(length = 45,nullable= false)
-    private String user;
+    private String correo;
     @Column(length = 45,nullable = false)
     private String password;
 

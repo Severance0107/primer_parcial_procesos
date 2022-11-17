@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "almacen")
+@Table(name = "articulo")
 
 public class Articulo {
     @Id

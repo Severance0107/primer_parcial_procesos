@@ -4,16 +4,16 @@ import com.primer_parcial.SyK.models.Articulo;
 import com.primer_parcial.SyK.models.Categoria;
 import com.primer_parcial.SyK.repository.ArticuloRepository;
 import com.primer_parcial.SyK.repository.CategoriaRepository;
-import com.primer_parcial.SyK.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ArticuloServiceImpl implements ArticuloService{
 
     @Autowired
@@ -21,12 +21,6 @@ public class ArticuloServiceImpl implements ArticuloService{
 
     @Autowired
     private CategoriaRepository categoriaRepository;
-
-    @Autowired
-    private JWTUtil jwtUtil;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseEntity getArticleByCod(@PathVariable String codigo) {

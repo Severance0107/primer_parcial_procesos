@@ -17,7 +17,7 @@ public class UsuarioController {
     private UsuarioRepository usuarioRepository;
 
     //--------------------------------------------Crear usuario--------------------------------------------
-    @PostMapping("/Usuario")
+    @PostMapping("/usuario")
     public ResponseEntity crearUsuario(@RequestBody Usuario usuario){
 
         return usuarioService.createUser(usuario);
