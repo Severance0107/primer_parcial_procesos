@@ -20,16 +20,33 @@ public class ArticuloController {
 
     @Autowired
     private ArticuloService articuloService;
-
     @Autowired
     private ArticuloRepository articuloRepository;
     @Autowired
     private CategoriaRepository categoriaRepository;
 
+    //--------------------------------------------Listar Articulo por codigo--------------------------------------------
+    @GetMapping(value = "/articulo/codigo/{codigo}")
+    public ResponseEntity getArticulo(@PathVariable String codigo) {
+
+        return articuloService.getArticleByCod(codigo);
+
+    }
+
+
+    //----------------------------------------------Listar todos los articulos------------------------------------------
+
+    @GetMapping("/articulos")
+    public ResponseEntity listarArticulo(){
+
+        return articuloService.getAllArticles();
+
+    }
+
     //----------------------------------------------Crear un articulo---------------------------------------------------
     @PostMapping("/articulo")
     public ResponseEntity crearArticulo(@RequestBody Articulo articulo){
-        
+
         return articuloService.createArticle(articulo);
     }
 
@@ -47,27 +64,6 @@ public class ArticuloController {
     public ResponseEntity eliminarArticulo(@PathVariable String codigo){
 
         return articuloService.deleteArticle(codigo);
-
-    }
-
-
-
-
-    //--------------------------------------------Listar Articulo por codigo--------------------------------------------
-    @GetMapping(value = "/articulo/codigo/{codigo}")
-    public ResponseEntity getArticulo(@PathVariable String codigo) {
-
-        return articuloService.getArticleByCod(codigo);
-
-    }
-
-
-    //----------------------------------------------Listar todos los articulos------------------------------------------
-
-    @GetMapping("/articulos")
-    public ResponseEntity listarArticulo(){
-
-        return articuloService.getAllArticles();
 
     }
 
