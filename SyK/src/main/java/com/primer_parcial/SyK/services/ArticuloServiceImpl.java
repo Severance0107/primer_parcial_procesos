@@ -19,6 +19,7 @@ public class ArticuloServiceImpl implements ArticuloService{
     @Autowired
     private ArticuloRepository articuloRepository;
 
+
     @Autowired
     private CategoriaRepository categoriaRepository;
 
