@@ -1,13 +1,15 @@
 package com.primer_parcial.SyK.models;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 
 import javax.persistence.*;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "usuario")
 public class Usuario {
     @Id
