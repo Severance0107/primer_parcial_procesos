@@ -16,6 +16,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
     private JWTUtil jwtUtil;
 
     @Override
@@ -28,6 +29,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             return ResponseEntity.badRequest().build();
         }
     }
+
     @Override
     public ResponseEntity login(String correo, String password) {
         try{
@@ -41,5 +43,6 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
         return ResponseEntity.notFound().build();
     }
+
 }
 

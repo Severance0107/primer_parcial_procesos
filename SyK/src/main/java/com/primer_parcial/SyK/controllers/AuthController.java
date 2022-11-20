@@ -1,6 +1,5 @@
 package com.primer_parcial.SyK.controllers;
 
-
 import com.primer_parcial.SyK.models.Usuario;
 import com.primer_parcial.SyK.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +22,3 @@ public class AuthController {
 
 
 }
-
