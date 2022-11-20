@@ -5,7 +5,9 @@ import com.primer_parcial.SyK.models.Articulo;
 import com.primer_parcial.SyK.repository.ArticuloRepository;
 import com.primer_parcial.SyK.repository.CategoriaRepository;
 import com.primer_parcial.SyK.services.ArticuloService;
+import com.primer_parcial.SyK.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,11 +21,15 @@ public class ArticuloController {
     private ArticuloRepository articuloRepository;
     @Autowired
     private CategoriaRepository categoriaRepository;
+    @Autowired
+    private JWTUtil jwtUtil;
 
     //--------------------------------------------Listar Articulo por codigo--------------------------------------------
     @GetMapping(value = "/articulo/codigo/{codigo}")
-    public ResponseEntity getArticulo(@PathVariable String codigo) {
-
+    public ResponseEntity getArticulo(@PathVariable String codigo, @RequestHeader(value = "Authorization") String token) {
+        if (jwtUtil.getKey(token)==null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        }
         return articuloService.getArticleByCod(codigo);
 
     }
