@@ -38,23 +38,29 @@ public class ArticuloController {
     //----------------------------------------------Listar todos los articulos------------------------------------------
 
     @GetMapping("/articulos")
-    public ResponseEntity listarArticulo(){
-
+    public ResponseEntity listarArticulo(@RequestHeader(value = "Authorization") String token){
+        if (jwtUtil.getKey(token)==null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        }
         return articuloService.getAllArticles();
 
     }
 
     //----------------------------------------------Crear un articulo---------------------------------------------------
     @PostMapping("/articulo")
-    public ResponseEntity crearArticulo(@RequestBody Articulo articulo){
-
+    public ResponseEntity crearArticulo(@RequestBody Articulo articulo, @RequestHeader(value = "Authorization") String token){
+        if (jwtUtil.getKey(token)==null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        }
         return articuloService.createArticle(articulo);
     }
 
     //--------------------------------------------Modificar un articulo-------------------------------------------------
     @PutMapping("/articulo/{codigo}")
-    public ResponseEntity editarArticulo(@PathVariable String codigo, @RequestBody Articulo articulo ){
-
+    public ResponseEntity editarArticulo(@PathVariable String codigo, @RequestBody Articulo articulo , @RequestHeader(value = "Authorization") String token){
+        if (jwtUtil.getKey(token)==null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        }
         return articuloService.editArticle(codigo, articulo);
 
     }
@@ -62,8 +68,10 @@ public class ArticuloController {
     //------------------------------------------Eliminar un articulo----------------------------------------------------
 
     @DeleteMapping("articulo/{codigo}")
-    public ResponseEntity eliminarArticulo(@PathVariable String codigo){
-
+    public ResponseEntity eliminarArticulo(@PathVariable String codigo, @RequestHeader(value = "Authorization") String token){
+        if (jwtUtil.getKey(token)==null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        }
         return articuloService.deleteArticle(codigo);
 
     }
