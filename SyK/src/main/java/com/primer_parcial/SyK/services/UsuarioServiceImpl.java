@@ -2,6 +2,7 @@ package com.primer_parcial.SyK.services;
 
 import com.primer_parcial.SyK.models.Usuario;
 import com.primer_parcial.SyK.repository.UsuarioRepository;
+import com.primer_parcial.SyK.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    private JWTUtil jwtUtil;
+
     @Override
     public ResponseEntity<Usuario> createUser(Usuario usuario) {
         try {
@@ -25,4 +28,18 @@ public class UsuarioServiceImpl implements UsuarioService {
             return ResponseEntity.badRequest().build();
         }
     }
+    @Override
+    public ResponseEntity login(String correo, String password) {
+        try{
+            Usuario usuario = usuarioRepository.findByCorreo(correo);
+            if(passwordEncoder.matches(password, usuario.getPassword())){
+                String token = jwtUtil.create(String.valueOf(usuario.getId()), usuario.getCorreo());
+                return ResponseEntity.ok(token);
+            }
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
+

@@ -12,6 +12,7 @@ com\primer_parcial\SyK\controllers\UsuarioController.class
 com\primer_parcial\SyK\utils\JWTUtil.class
 com\primer_parcial\SyK\repository\CategoriaRepository.class
 com\primer_parcial\SyK\services\CategoriaService.class
+com\primer_parcial\SyK\controllers\AuthController.class
 com\primer_parcial\SyK\repository\UsuarioRepository.class
 com\primer_parcial\SyK\services\CategoriaServicelmpl.class
 com\primer_parcial\SyK\models\Articulo.class
