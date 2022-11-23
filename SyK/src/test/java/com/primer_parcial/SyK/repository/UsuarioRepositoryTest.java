@@ -13,7 +13,7 @@ public class UsuarioRepositoryTest {
     private UsuarioRepository usuarioRepository;
 
     @Test
-    void testGuardarUsuario(){
+    public void testGuardarUsuario(){
 
         //Given - Dado o condición previa o configuracion
         Usuario usuario1 = Usuario.builder()

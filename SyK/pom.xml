@@ -52,8 +52,6 @@
 			<version>0.9.1</version>
 		</dependency>
 
-<<<<<<< HEAD
-=======
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -62,7 +60,15 @@
 			<scope>test</scope>
 		</dependency>
 
->>>>>>> f58154588548cbdcf6614f3d792ed4e879d02596
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>4.9.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Primer parcial\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\repository\CategoriaRepository.java
-C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Primer parcial\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\repository\ArticuloRepository.java
-C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Primer parcial\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\models\Categoria.java
-C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Primer parcial\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\models\Articulo.java
-C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Primer parcial\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\SyKApplication.java
-C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Primer parcial\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\controllers\ArticuloController.java
-=======
 C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Nueva carpeta\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\controllers\AuthController.java
 C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Nueva carpeta\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\models\Articulo.java
 C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Nueva carpeta\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\repository\UsuarioRepository.java
@@ -25,4 +17,3 @@ C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Nueva carpeta\pri
 C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Nueva carpeta\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\services\UsuarioService.java
 C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Nueva carpeta\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\services\CategoriaService.java
 C:\Users\sergi\OneDrive\Documentos\Cosas U\Proceso de nogocios\Nueva carpeta\primer_parcial_procesos\SyK\src\main\java\com\primer_parcial\SyK\repository\CategoriaRepository.java
->>>>>>> f58154588548cbdcf6614f3d792ed4e879d02596
