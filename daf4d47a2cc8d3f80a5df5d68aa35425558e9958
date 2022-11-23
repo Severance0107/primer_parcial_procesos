@@ -1,0 +1,29 @@
+[33mcommit 8ec05218bbc852d4b65c7f4c28de210ef9d09511[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Sergio Ortiz <saortizi@ufpso.edu.co>
+Date:   Wed Nov 23 11:16:48 2022 -0500
+
+    Pruebas unitarias en services y repository (En fallo)
+
+[33mcommit daf4d47a2cc8d3f80a5df5d68aa35425558e9958[m
+Author: Severance0107 <102986517+Severance0107@users.noreply.github.com>
+Date:   Thu Oct 6 20:47:51 2022 -0500
+
+    Parcial completo, verificando que la categoria
+
+[33mcommit dc288000f2c73b7882c4ca0f20c1c19db07148ea[m
+Author: Severance0107 <102986517+Severance0107@users.noreply.github.com>
+Date:   Thu Oct 6 20:13:21 2022 -0500
+
+    Crear relacion entre articulo y categoria
+
+[33mcommit 898f8d43818c01c638f625f4010fbefb55fa3d4b[m
+Author: Severance0107 <102986517+Severance0107@users.noreply.github.com>
+Date:   Thu Oct 6 19:47:27 2022 -0500
+
+    Crud y visualizaciones
+
+[33mcommit 173ea51b6dc8e3f29d82d613ae5999e691088ca3[m
+Author: Severance0107 <102986517+Severance0107@users.noreply.github.com>
+Date:   Thu Oct 6 18:38:04 2022 -0500
+
+    Initial commit
