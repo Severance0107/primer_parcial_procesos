@@ -110,21 +110,14 @@ class ArticuloServiceImplTest {
         //Given
         Articulo articulo = FactoryArticuloTestData.mockArticulo();
 
-
         given(articuloRepository.findByCodigo(articulo.getCodigo())).willReturn(Optional.of(articulo));
         articuloRepository.deleteById(articulo.getId());
 
-
-
         //when
-
         Optional<Articulo> elmArticulo = articuloRepository.findById(articulo.getId());
 
         //Then
-
         assertThat(elmArticulo).isEmpty();
-
-
     }
 
     @Test
@@ -137,7 +130,7 @@ class ArticuloServiceImplTest {
         Assertions.assertEquals( 404, mockArticleService.getStatusCodeValue());
     }
 
-    @DisplayName("Test para Cuando se retorna un bac request")
+    @DisplayName("Test para Cuando se retorna un bad request")
     @Test
     void createArticleReturnBadRequest() {
         Articulo mockArticleModel = null;

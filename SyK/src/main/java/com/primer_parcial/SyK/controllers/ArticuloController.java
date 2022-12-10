@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 public class ArticuloController {
 
@@ -39,20 +40,34 @@ public class ArticuloController {
 
     @GetMapping("/articulos")
     public ResponseEntity listarArticulo(@RequestHeader(value = "Authorization") String token){
-        if (jwtUtil.getKey(token)==null){
+        //if (jwtUtil.getKey(token)==null){
+          //  return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        //}
+        //return articuloService.getAllArticles();
+    try {
+        if (jwtUtil.getKey(token) == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
         }
         return articuloService.getAllArticles();
+    }catch (Exception e){
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido. "+e.getMessage());
+    }
 
     }
 
     //----------------------------------------------Crear un articulo---------------------------------------------------
     @PostMapping("/articulo")
     public ResponseEntity crearArticulo(@RequestBody Articulo articulo, @RequestHeader(value = "Authorization") String token){
-        if (jwtUtil.getKey(token)==null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+
+        try {
+            if (jwtUtil.getKey(token) == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+            }
+            return articuloService.createArticle(articulo);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido. "+e.getMessage());
         }
-        return articuloService.createArticle(articulo);
+
     }
 
     //--------------------------------------------Modificar un articulo-------------------------------------------------
