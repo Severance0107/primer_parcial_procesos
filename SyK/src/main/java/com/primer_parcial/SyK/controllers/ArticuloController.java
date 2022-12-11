@@ -73,10 +73,15 @@ public class ArticuloController {
     //--------------------------------------------Modificar un articulo-------------------------------------------------
     @PutMapping("/articulo/{codigo}")
     public ResponseEntity editarArticulo(@PathVariable String codigo, @RequestBody Articulo articulo , @RequestHeader(value = "Authorization") String token){
-        if (jwtUtil.getKey(token)==null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+
+        try {
+            if (jwtUtil.getKey(token) == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+            }
+            return articuloService.editArticle(codigo, articulo);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido"+e.getMessage());
         }
-        return articuloService.editArticle(codigo, articulo);
 
     }
 
@@ -84,11 +89,14 @@ public class ArticuloController {
 
     @DeleteMapping("articulo/{codigo}")
     public ResponseEntity eliminarArticulo(@PathVariable String codigo, @RequestHeader(value = "Authorization") String token){
-        if (jwtUtil.getKey(token)==null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        try {
+            if (jwtUtil.getKey(token) == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+            }
+            return articuloService.deleteArticle(codigo);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido."+e.getMessage());
         }
-        return articuloService.deleteArticle(codigo);
-
     }
 
 
