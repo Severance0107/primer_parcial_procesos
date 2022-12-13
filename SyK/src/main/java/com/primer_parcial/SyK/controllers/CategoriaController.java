@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 public class CategoriaController {
     @Autowired
@@ -18,26 +19,64 @@ public class CategoriaController {
 
     @PostMapping("/categoria")
     public ResponseEntity crearCategoria(@RequestBody Categoria categoria, @RequestHeader(value = "Authorization") String token){
-        if (jwtUtil.getKey(token)==null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+
+        try {
+            if (jwtUtil.getKey(token) == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+            }
+            return categoriaService.createCategoria(categoria);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido. "+e.getMessage());
         }
-        return categoriaService.createCategoria(categoria);
+
+
 
     }
     @PutMapping("/categoria/{id}")
     public ResponseEntity editarCategoria(@PathVariable Long id ,@RequestBody Categoria categoria, @RequestHeader(value = "Authorization") String token){
-        if (jwtUtil.getKey(token)==null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        try {
+            if (jwtUtil.getKey(token) == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+            }
+            return categoriaService.editCategoria(id, categoria);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido"+e.getMessage());
         }
-        return categoriaService.editCategoria(id,categoria);
 
     }
     @DeleteMapping("categoria/{id}")
     public ResponseEntity eliminarCategoria(@PathVariable Long id, @RequestHeader(value = "Authorization") String token){
+        try {
+            if (jwtUtil.getKey(token) == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+            }
+            return categoriaService.deleteCategoria(id);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido."+e.getMessage());
+        }
+}
+    @GetMapping("/categorias")
+    public ResponseEntity listarCategoria(@RequestHeader(value = "Authorization") String token){
+        //if (jwtUtil.getKey(token)==null){
+        //  return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+        //}
+        //return articuloService.getAllArticles();
+        try {
+            if (jwtUtil.getKey(token) == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
+            }
+            return categoriaService.getAllCategorias();
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido. "+e.getMessage());
+        }
+
+    }
+    @GetMapping(value = "/categoria/id/{id}")
+    public ResponseEntity getCategoria(@PathVariable Long id, @RequestHeader(value = "Authorization") String token) {
         if (jwtUtil.getKey(token)==null){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token no valido");
         }
-        return categoriaService.deleteCategoria(id);
+        return categoriaService.getCategoriaById(id);
 
     }
 }
